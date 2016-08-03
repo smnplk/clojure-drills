@@ -1,6 +1,9 @@
 # Spell Checker
+
 Simple spell checker for english words parsed from resource/birit-a-z.txt file
-Levensthein (edit distance) algorithm is used for suggestions
+Levenshtein distance (edit distance) algorithm is used for suggestion,
+implemented in functional style
+
 
 ## License
 
