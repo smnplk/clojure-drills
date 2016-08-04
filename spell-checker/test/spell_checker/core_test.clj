@@ -4,7 +4,7 @@
             [spell-checker.core :refer :all]))
 
 
-(testing "Levensthein Algorithm"
+(deftest levenshtein
 
   (testing "levensthein/edit-distance returns an integer"
     (is (instance? Long (levenshtein/edit-distance "Aba" "Abakus"))))
@@ -14,5 +14,3 @@
       (is (= 1 (levenshtein/edit-distance "Meow" "Meowa")))
       (is (= 3 (levenshtein/edit-distance "Something" "Nothing")))
       (is (= 9 (levenshtein/edit-distance "Completely" "Weird"))))))
-
-; Todo: add usage tests

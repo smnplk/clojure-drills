@@ -24,3 +24,4 @@
   "returns a word from dictionary that is most similar to input-word"
   [input-word]
   (apply min-key (partial distance input-word) dictionary))
+
