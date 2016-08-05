@@ -50,7 +50,7 @@
 
 (acc-3 #(* % %) [1 2 3 4 5])
 (acc-3 #(* % %) '(1 2 3 4 5))
-(time (acc-3 #(* % %) large-vec)) ; StackOwerflow !! :)
+;(time (acc-3 #(* % %) large-vec)) ; StackOwerflow !! :)
 
 ; using the same solution as above, but instead of recursively calling inner function
 ; we can use recur instead, looks recursive but under the covers, it is converted to iteration
@@ -62,9 +62,9 @@
               (recur (rest coll) (conj acc (f (first coll))))))]
     (accumulate coll [])))
 
-(acc-4 #(* % %) [1 2 3 4 5])
-(acc-4 #(* % %) '(1 2 3 4 5))
-(time (acc-4 #(* % %) large-vec)) ; Look ma, no stack owerflow ! :)
+;(acc-4 #(* % %) [1 2 3 4 5])
+;(acc-4 #(* % %) '(1 2 3 4 5))
+;(time (acc-4 #(* % %) large-vec)) ; Look ma, no stack owerflow ! :)
 
 
 ; let's get real, we can also use reduce and be more functional :P They didn't say that we
@@ -74,9 +74,9 @@
   (reduce (fn [acc input]
             (conj acc (f input))) [] coll))
 
-(acc-5 #(* % %) [1 2 3 4 5])
-(acc-5 #(* % %) '(1 2 3 4 5))
-(time (acc-5 #(* % %) large-vec)) ; 7ms, not bad ;)
+;(acc-5 #(* % %) [1 2 3 4 5])
+;(acc-5 #(* % %) '(1 2 3 4 5))
+;(time (acc-5 #(* % %) large-vec)) ; 7ms, not bad ;)
 
 ; don't forget about list comprehensions :)
 
@@ -84,7 +84,7 @@
   (for [e coll :let [prod (f e)]]
        prod))
 
-(acc-6 #(* % %) [1 2 3 4 5])
-(acc-6 #(* % %) '(1 2 3 4 5))
-(time (acc-6 #(* % %) large-vec)) ; 0.6ms, whooa! And this is my favourite way if i am not allowed to use map
+;(acc-6 #(* % %) [1 2 3 4 5])
+;(acc-6 #(* % %) '(1 2 3 4 5))
+;(time (acc-6 #(* % %) large-vec)) ; 0.6ms, whooa! And this is my favourite way if i am not allowed to use map
 
